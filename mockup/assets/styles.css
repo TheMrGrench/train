@@ -551,6 +551,8 @@ html.embedded body.standalone .screen {
   color: var(--muted);
   padding: 8px 4px;
   border-radius: 8px;
+  background: transparent;
+  border: 0;
 }
 .seg .seg-item.active {
   background: var(--bg-elev-2);
