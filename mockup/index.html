@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Тренировки · Мокап</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .gallery-section + .gallery-section { margin-top: 8px; }
+  .section-h {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+  .phones-row {
+    padding: 20px 40px 40px;
+  }
+  .phone-wrap { display: flex; flex-direction: column; align-items: center; }
+  .legend {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 40px 60px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .legend code {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 12px;
+  }
+  .legend ul { padding-left: 20px; }
+  .palette {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .swatch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .swatch .chip-color {
+    width: 18px; height: 18px; border-radius: 5px;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+</style>
+</head>
+<body>
+  <div class="gallery">
+
+    <header>
+      <h1>Тренировки</h1>
+      <p>Макет мобильного приложения для отслеживания собственных тренировок: приседания, отжимания, подтягивания, брусья. Вес жилета 0–30 кг на каждый подход, история и график прогресса по упражнению.</p>
+    </header>
+
+    <div class="gallery-section">
+      <div class="section-h">Пять экранов</div>
+      <div class="phones-row">
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="notch"></div>
+            <iframe class="screen-frame" src="screens/home.html" title="Главная"></iframe>
+          </div>
+          <div class="phone-caption">
+            <b>Главная</b>
+            Старт, серия, статистика недели
+          </div>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="notch"></div>
+            <iframe class="screen-frame" src="screens/workout.html" title="Активная тренировка"></iframe>
+          </div>
+          <div class="phone-caption">
+            <b>Активная тренировка</b>
+            Подходы, жилет, таймер отдыха
+          </div>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="notch"></div>
+            <iframe class="screen-frame" src="screens/history.html" title="История"></iframe>
+          </div>
+          <div class="phone-caption">
+            <b>История</b>
+            Журнал по месяцам
+          </div>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="notch"></div>
+            <iframe class="screen-frame" src="screens/progress.html" title="Прогресс"></iframe>
+          </div>
+          <div class="phone-caption">
+            <b>Прогресс</b>
+            Графики и личные рекорды
+          </div>
+        </div>
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="notch"></div>
+            <iframe class="screen-frame" src="screens/detail.html" title="Детали тренировки"></iframe>
+          </div>
+          <div class="phone-caption">
+            <b>Детали тренировки</b>
+            Подходы и заметки
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="legend">
+      <strong style="color:var(--text); font-size:14px;">Навигация</strong>
+      <ul>
+        <li>Каждый экран открывается отдельно: <code>screens/home.html</code>, <code>workout.html</code>, <code>history.html</code>, <code>progress.html</code>, <code>detail.html</code>.</li>
+        <li>Это статичный мокап без логики. Когда одобришь вид — переношу стили в Tauri + React.</li>
+      </ul>
+
+      <strong style="color:var(--text); font-size:14px; display:block; margin-top:20px;">Палитра</strong>
+      <div class="palette">
+        <span class="swatch"><span class="chip-color" style="background:#0B0D10"></span>#0B0D10 · фон</span>
+        <span class="swatch"><span class="chip-color" style="background:#14181D"></span>#14181D · карточка</span>
+        <span class="swatch"><span class="chip-color" style="background:#7CFF6B"></span>#7CFF6B · акцент</span>
+        <span class="swatch"><span class="chip-color" style="background:#E6E8EB"></span>#E6E8EB · текст</span>
+        <span class="swatch"><span class="chip-color" style="background:#8A8F98"></span>#8A8F98 · приглушённый</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Тренировки · Активная тренировка</title>
+<meta name="viewport" content="width=390, initial-scale=1">
+<link rel="stylesheet" href="../assets/styles.css">
+<script src="../assets/icons.js"></script>
+<style>
+  /* Workout-screen-specific tweaks */
+  .rest-banner {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    background: rgba(124,255,107,.08);
+    border: 1px solid rgba(124,255,107,.3);
+    border-radius: var(--r-md);
+    padding: 10px 12px;
+    margin-bottom: 12px;
+  }
+  .rest-banner .ring { position: relative; width: 56px; height: 56px; }
+  .rest-banner .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .rest-banner .ring .fg { stroke: var(--accent); stroke-linecap: round; }
+  .rest-banner .ring .bg { stroke: rgba(124,255,107,.15); }
+  .rest-banner .ring .time {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+  }
+  .rest-banner .label { font-size: 13px; color: var(--muted); }
+  .rest-banner .label b { color: var(--text); font-size: 15px; display: block; }
+  .rest-banner .skip {
+    background: transparent; border: 1px solid rgba(124,255,107,.4);
+    color: var(--accent); padding: 8px 12px; border-radius: 10px; font-weight: 600; font-size: 12px;
+  }
+  .section-title {
+    color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+    margin: 14px 4px 8px;
+  }
+  .note-field {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 10px 14px;
+    color: var(--muted);
+    font-size: 13px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .note-field svg { width: 14px; height: 14px; color: var(--info); }
+</style>
+</head>
+<body class="standalone">
+  <div class="screen">
+
+    <div class="status-bar mono">
+      <span>9:41</span>
+      <span class="right">
+        <svg><use href="#signal"/></svg>
+        <svg><use href="#wifi"/></svg>
+        <svg><use href="#battery"/></svg>
+      </span>
+    </div>
+
+    <div class="screen-header">
+      <div class="row gap-3" style="align-items:center;">
+        <button class="icon-btn" aria-label="Закрыть">
+          <svg><use href="#x"/></svg>
+        </button>
+        <div>
+          <h1 style="font-size:20px;">Тренировка</h1>
+          <div class="sub mono" style="display:inline-flex; gap:4px; align-items:center;">
+            <svg style="width:12px;height:12px;color:var(--accent)"><use href="#clock"/></svg>
+            28:14
+          </div>
+        </div>
+      </div>
+      <span class="pill accent" style="font-size:11px;">В процессе</span>
+    </div>
+
+    <div class="content scrollable" style="padding-bottom: 100px;">
+
+      <!-- Exercise picker -->
+      <div class="ex-grid">
+        <button class="ex-tile">
+          <svg><use href="#ex-squat"/></svg>
+          <span class="name">Приседания</span>
+        </button>
+        <button class="ex-tile">
+          <svg><use href="#ex-pushup"/></svg>
+          <span class="name">Отжимания</span>
+        </button>
+        <button class="ex-tile active">
+          <svg><use href="#ex-pullup"/></svg>
+          <span class="name">Подтягивания</span>
+        </button>
+        <button class="ex-tile">
+          <svg><use href="#ex-dip"/></svg>
+          <span class="name">Брусья</span>
+        </button>
+      </div>
+
+      <!-- Active rest banner -->
+      <div class="section-title" style="margin-top: 18px;">Отдых</div>
+      <div class="rest-banner">
+        <div class="ring">
+          <!-- r=24, C=150.8, progress 67% -->
+          <svg viewBox="0 0 56 56">
+            <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke-width="4"/>
+            <circle class="fg" cx="28" cy="28" r="24" fill="none" stroke-width="4"
+                    stroke-dasharray="150.8" stroke-dashoffset="49.8"/>
+          </svg>
+          <div class="time mono">1:23</div>
+        </div>
+        <div class="label">
+          Осталось
+          <b class="mono">из 2:00</b>
+        </div>
+        <button class="skip">Пропустить</button>
+      </div>
+
+      <!-- Sets list -->
+      <div class="section-title">Подтягивания · подходы</div>
+      <div class="set-list">
+        <div class="set-row">
+          <span class="idx">1</span>
+          <div class="main">
+            <span class="reps mono">10<small>повт</small></span>
+            <span class="vest">
+              <svg><use href="#vest"/></svg>
+              <span class="mono">10 кг</span>
+            </span>
+          </div>
+          <span class="rest mono"><svg><use href="#clock"/></svg>2:00</span>
+        </div>
+        <div class="set-row">
+          <span class="idx">2</span>
+          <div class="main">
+            <span class="reps mono">9<small>повт</small></span>
+            <span class="vest">
+              <svg><use href="#vest"/></svg>
+              <span class="mono">15 кг</span>
+            </span>
+          </div>
+          <span class="rest mono"><svg><use href="#clock"/></svg>2:00</span>
+        </div>
+        <div class="set-row" style="border-color: rgba(124,255,107,.4); background: rgba(124,255,107,.05);">
+          <span class="idx" style="background:var(--accent); color:var(--accent-ink);">3</span>
+          <div class="main">
+            <span class="reps mono">8<small>повт</small></span>
+            <span class="vest">
+              <svg><use href="#vest"/></svg>
+              <span class="mono">15 кг</span>
+            </span>
+          </div>
+          <span class="rest mono" style="color:var(--accent)">идёт отдых</span>
+        </div>
+      </div>
+
+      <!-- New set input -->
+      <div class="section-title">Новый подход</div>
+      <div class="set-input">
+        <!-- Reps stepper -->
+        <div class="stepper">
+          <button aria-label="Меньше">
+            <svg style="width:18px;height:18px;"><use href="#minus"/></svg>
+          </button>
+          <div class="value mono">8<small>повторов</small></div>
+          <button aria-label="Больше">
+            <svg style="width:18px;height:18px;"><use href="#plus"/></svg>
+          </button>
+        </div>
+
+        <!-- Vest slider -->
+        <div class="row between" style="margin-top:14px; margin-bottom:2px;">
+          <div class="row gap-2" style="color:var(--muted); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em;">
+            <svg style="width:14px;height:14px;"><use href="#vest"/></svg>
+            Жилет
+          </div>
+          <div class="mono" style="color:var(--muted); font-size:11px;">0–30 кг</div>
+        </div>
+        <div class="vest-slider" style="--pct: 50%;">
+          <div class="fill"></div>
+          <div class="thumb"></div>
+          <div class="label"><b class="mono">15</b> кг</div>
+        </div>
+        <div class="preset-row">
+          <button class="preset">0</button>
+          <button class="preset">5</button>
+          <button class="preset">10</button>
+          <button class="preset active">15</button>
+          <button class="preset">20</button>
+          <button class="preset">25</button>
+          <button class="preset">30</button>
+        </div>
+
+        <!-- Confirm -->
+        <div class="row gap-2" style="margin-top:14px;">
+          <button class="btn primary" style="flex: 2;">
+            <svg><use href="#check"/></svg>
+            Записать подход
+          </button>
+          <button class="btn ghost" style="flex: 1; padding: 14px 10px;">
+            <svg><use href="#clock"/></svg>
+            Отдых
+          </button>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div class="section-title">Заметка к тренировке</div>
+      <div class="note-field">
+        <svg><use href="#note"/></svg>
+        <span>Плечо лёгкое напряжение, темп ок…</span>
+      </div>
+
+    </div>
+
+    <!-- Finish (sticky bottom) -->
+    <div style="position:absolute; left:0; right:0; bottom:0; padding: 12px 20px 22px; background: linear-gradient(180deg, transparent, var(--bg) 40%);">
+      <button class="btn primary">
+        <svg><use href="#check"/></svg>
+        Завершить тренировку
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

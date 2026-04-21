@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Тренировки · История</title>
+<meta name="viewport" content="width=390, initial-scale=1">
+<link rel="stylesheet" href="../assets/styles.css">
+<script src="../assets/icons.js"></script>
+<style>
+  .history-row .note-dot {
+    width: 20px; height: 20px; border-radius: 999px;
+    background: rgba(107,184,255,.12); color: var(--info);
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  .history-row .note-dot svg { width: 11px; height: 11px; }
+  .history-row .pr-dot {
+    width: 20px; height: 20px; border-radius: 999px;
+    background: rgba(124,255,107,.12); color: var(--accent);
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+  .history-row .pr-dot svg { width: 11px; height: 11px; }
+</style>
+</head>
+<body class="standalone">
+  <div class="screen">
+
+    <div class="status-bar mono">
+      <span>9:41</span>
+      <span class="right">
+        <svg><use href="#signal"/></svg>
+        <svg><use href="#wifi"/></svg>
+        <svg><use href="#battery"/></svg>
+      </span>
+    </div>
+
+    <div class="screen-header">
+      <div>
+        <h1>История</h1>
+        <div class="sub">18 тренировок за месяц</div>
+      </div>
+      <button class="icon-btn" aria-label="Ещё">
+        <svg><use href="#more"/></svg>
+      </button>
+    </div>
+
+    <div class="content scrollable">
+
+      <div class="month-label">Апрель 2026</div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">20</div>
+          <div class="m">Пн</div>
+        </div>
+        <div class="meta">
+          <div class="title">Подтягивания · Брусья · Отжимания</div>
+          <div class="summary">
+            <span class="mono">42 мин</span> · 11 подх. · до <b class="mono" style="color:var(--text)">15 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="pr-dot" title="Новый рекорд"><svg><use href="#flame"/></svg></span>
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">18</div>
+          <div class="m">Сб</div>
+        </div>
+        <div class="meta">
+          <div class="title">Приседания · Подтягивания</div>
+          <div class="summary">
+            <span class="mono">36 мин</span> · 8 подх. · до <b class="mono" style="color:var(--text)">20 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="note-dot" title="Есть заметка"><svg><use href="#note"/></svg></span>
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">16</div>
+          <div class="m">Чт</div>
+        </div>
+        <div class="meta">
+          <div class="title">Отжимания · Брусья</div>
+          <div class="summary">
+            <span class="mono">28 мин</span> · 7 подх. · до <b class="mono" style="color:var(--text)">10 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">14</div>
+          <div class="m">Вт</div>
+        </div>
+        <div class="meta">
+          <div class="title">Все упражнения</div>
+          <div class="summary">
+            <span class="mono">54 мин</span> · 14 подх. · до <b class="mono" style="color:var(--text)">15 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="note-dot"><svg><use href="#note"/></svg></span>
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">12</div>
+          <div class="m">Вс</div>
+        </div>
+        <div class="meta">
+          <div class="title">Подтягивания · Брусья</div>
+          <div class="summary">
+            <span class="mono">31 мин</span> · 8 подх. · до <b class="mono" style="color:var(--text)">10 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div class="month-label">Март 2026</div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">29</div>
+          <div class="m">Вс</div>
+        </div>
+        <div class="meta">
+          <div class="title">Приседания · Отжимания</div>
+          <div class="summary">
+            <span class="mono">33 мин</span> · 9 подх. · до <b class="mono" style="color:var(--text)">20 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div class="history-row">
+        <div class="date">
+          <div class="d mono">27</div>
+          <div class="m">Пт</div>
+        </div>
+        <div class="meta">
+          <div class="title">Все упражнения</div>
+          <div class="summary">
+            <span class="mono">48 мин</span> · 12 подх. · до <b class="mono" style="color:var(--text)">15 кг</b>
+          </div>
+        </div>
+        <div class="row gap-2">
+          <span class="pr-dot"><svg><use href="#flame"/></svg></span>
+          <span class="chev"><svg><use href="#chevron-right"/></svg></span>
+        </div>
+      </div>
+
+      <div style="height: 20px;"></div>
+
+    </div>
+
+    <nav class="tab-bar">
+      <button class="tab">
+        <svg><use href="#home"/></svg>
+        <span>Главная</span>
+      </button>
+      <button class="tab active">
+        <svg><use href="#history"/></svg>
+        <span>История</span>
+      </button>
+      <button class="tab">
+        <svg><use href="#chart"/></svg>
+        <span>Прогресс</span>
+      </button>
+    </nav>
+
+  </div>
+</body>
+</html>
