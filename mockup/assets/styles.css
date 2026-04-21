@@ -348,6 +348,187 @@ html.embedded body.standalone .screen {
 }
 .set-row .rest svg { width: 13px; height: 13px; }
 
+/* Time-dominant set row: time as primary, vest + RPE inline */
+.set-row .main .time { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.set-row .main .time small { font-size: 11px; color: var(--muted); font-weight: 500; margin-left: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+.set-row .main .reps-inline { color: var(--muted); font-size: 12px; display: inline-flex; gap: 3px; align-items: baseline; }
+.set-row .main .reps-inline b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* RPE indicator: 5 vertical bars colored by level */
+.rpe {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  height: 12px;
+}
+.rpe .rpe-seg {
+  width: 4px; height: 10px; border-radius: 1.5px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+}
+.rpe.lvl-1 .rpe-seg:nth-child(-n+1),
+.rpe.lvl-2 .rpe-seg:nth-child(-n+2),
+.rpe.lvl-3 .rpe-seg:nth-child(-n+3),
+.rpe.lvl-4 .rpe-seg:nth-child(-n+4),
+.rpe.lvl-5 .rpe-seg:nth-child(-n+5) {
+  background: var(--rpe-color);
+  border-color: var(--rpe-color);
+}
+.rpe.lvl-1 { --rpe-color: #7CFF6B; }
+.rpe.lvl-2 { --rpe-color: #B3E86B; }
+.rpe.lvl-3 { --rpe-color: #FFC86B; }
+.rpe.lvl-4 { --rpe-color: #FF9B6B; }
+.rpe.lvl-5 { --rpe-color: #FF6B6B; }
+
+.rpe-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--muted);
+  white-space: nowrap;
+}
+.rpe-pill .l { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+/* Active set card (giant timer) */
+.active-set {
+  background: var(--bg-elev);
+  border: 1px solid rgba(124,255,107,.35);
+  border-radius: var(--r-lg);
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.active-set::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: scanline 2s linear infinite;
+}
+@keyframes scanline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.active-set .hd {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+  margin-bottom: 4px;
+}
+.active-set .hd .rec {
+  display: inline-flex; align-items: center; gap: 5px;
+  color: var(--danger);
+}
+.active-set .hd .rec .dot {
+  width: 8px; height: 8px; border-radius: 999px; background: var(--danger);
+  animation: blink 1.2s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.active-set .time-big {
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  padding: 6px 0 4px;
+}
+.active-set .vest-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.active-set .vest-chip svg { width: 14px; height: 14px; color: var(--muted); }
+.active-set .vest-chip b { font-variant-numeric: tabular-nums; }
+
+.stop-btn {
+  background: var(--danger);
+  color: #fff;
+  border: 0;
+  border-radius: var(--r-md);
+  padding: 16px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 18px rgba(255,107,107,.25);
+}
+.stop-btn svg { width: 18px; height: 18px; }
+
+/* Interval schedule card (compact) */
+.interval-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.interval-card .cell { text-align: center; }
+.interval-card .cell .l { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+.interval-card .cell .v { font-size: 22px; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.interval-card .cell .v small { font-size: 11px; color: var(--muted); font-weight: 500; margin-left: 2px; }
+
+/* RPE picker (record screen) */
+.rpe-picker {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.rpe-picker button {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 6px 10px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: inherit;
+}
+.rpe-picker button .n {
+  font-size: 22px; font-weight: 700; line-height: 1;
+}
+.rpe-picker button .w {
+  font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;
+}
+.rpe-picker button.active {
+  border-color: transparent;
+  background: var(--rpe-color, var(--accent));
+  color: var(--accent-ink);
+}
+.rpe-picker button.active .w { color: rgba(11,13,16,.7); }
+.rpe-picker button.lvl-1 { --rpe-color: #7CFF6B; }
+.rpe-picker button.lvl-2 { --rpe-color: #B3E86B; }
+.rpe-picker button.lvl-3 { --rpe-color: #FFC86B; }
+.rpe-picker button.lvl-4 { --rpe-color: #FF9B6B; }
+.rpe-picker button.lvl-5 { --rpe-color: #FF6B6B; }
+
+/* Optional reps input on record screen */
+.optional-input {
+  display: flex;
+  align-items: center;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  gap: 10px;
+}
+.optional-input .label { flex: 1; color: var(--muted); font-size: 13px; }
+.optional-input .label small { display: block; font-size: 11px; color: var(--muted-2); margin-top: 2px; }
+.optional-input input {
+  width: 60px; text-align: center;
+  background: var(--bg-elev-2); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--text); font-size: 18px; font-weight: 700; padding: 8px 6px;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ==========================================================================
    Set input (workout.html new-set area)
    ========================================================================== */
